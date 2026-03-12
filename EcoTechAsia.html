@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTech Asia Sdn Bhd</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        [x-cloak] { display: none !important; }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('appData', () => ({
+                lang: 'en',
+                isMenuOpen: false,
+                content: {
+                    en: {
+                        name: "EcoTech Asia Sdn Bhd",
+                        chineseName: "绿能科技亚洲有限公司",
+                        registration: "(1603357-D)",
+                        tagline: "Innovation for a Sustainable World",
+                        about: "EcoTech Asia Sdn Bhd is a strategic consulting and sustainable solutions firm headquartered in Penang, Malaysia, serving businesses and investors across Malaysia, China, Japan, and the wider ASEAN region.",
+                        aboutDetail: "We specialize in green and sustainable solutions, strategic business consultation, and cross-border investment facilitation, with a particular focus on supporting enterprises entering the ASEAN market. By combining regional expertise, advanced technologies, and strong international networks, EcoTech Asia helps organizations achieve sustainable growth while contributing to environmental responsibility.",
+                        approach: "Our approach integrates innovation, AI-enabled insights, and multi-stakeholder collaboration to deliver effective solutions for SMEs, investors, and institutions seeking to participate in the emerging green economy of Asia.",
+                        vision: "Vision",
+                        visionText: "To become a respected and trusted partner providing strategic consulting and sustainable green solutions that empower SMEs to achieve long-term growth and resilience.",
+                        mission: "Mission",
+                        missionText: "To harness cutting-edge technologies, artificial intelligence, and the synergy of strategic resources and networks to enhance efficiency, effectiveness, and innovation, enabling businesses to achieve sustainable performance across all operations.",
+                        servicesTitle: "Our Services",
+                        servicesSub: "EcoTech Asia provides strategic consultation, green technology solutions, and cross-border business facilitation to support SMEs and investors seeking sustainable growth in Malaysia and the ASEAN region.",
+                        services: [
+                            { id: 1, title: "Green & Sustainable Business Strategy", desc: "We help businesses integrate sustainability into their core strategies and operations.", items: ["Sustainability and ESG strategy development", "Circular economy and resource optimization solutions", "Energy efficiency and carbon footprint assessment", "Sustainable manufacturing transformation", "Green certification advisory"], outcome: "Future-ready organizations aligned with global sustainability standards." },
+                            { id: 2, title: "China–ASEAN Market Entry Advisory", desc: "EcoTech Asia serves as a trusted partner for Chinese enterprises expanding into Malaysia and ASEAN.", items: ["ASEAN market intelligence and feasibility studies", "Investment strategy and localization planning", "Business incorporation and regulatory guidance", "Government engagement and policy advisory", "Cross-border investment coordination"], outcome: "Efficient and risk-managed market entry into ASEAN." },
+                            { id: 3, title: "Strategic Business Matching & Partnerships", desc: "We connect businesses with strategic partners, investors, and technology providers.", items: ["Business partner identification", "Joint venture facilitation", "Technology transfer partnerships", "Strategic alliance development", "Supply chain collaboration"], outcome: "High-value partnerships that drive expansion." },
+                            { id: 4, title: "Green Technology & Innovation Solutions", desc: "EcoTech Asia supports businesses in adopting innovative technologies that improve productivity.", items: ["Renewable energy solutions", "Waste recycling technologies", "Sustainable agriculture systems", "Smart manufacturing", "AI-driven efficiency"], outcome: "Technology-driven sustainability." },
+                            { id: 5, title: "Sustainable Investment Project Development", desc: "We assist investors in identifying and developing high-impact sustainable projects.", items: ["Renewable energy", "Green manufacturing", "Environmental technologies", "Circular economy", "Sustainable agriculture"], outcome: "Investment opportunities aligned with sustainability." },
+                            { id: 6, title: "Capacity Building & Business Coaching", desc: "Programs designed to strengthen strategic leadership and sustainability capabilities.", items: ["Business transformation workshops", "SME leadership development", "ASEAN market strategy training", "Investment readiness programs", "ESG management training"], outcome: "Leaders prepared for sustainable growth." },
+                            { id: 7, title: "Regional Project Coordination", desc: "End-to-end coordination and implementation support for cross-border projects.", items: ["Project planning and management", "Government liaison", "Multi-stakeholder coordination", "Implementation monitoring", "Risk management"], outcome: "Successful execution of regional projects." }
+                        ],
+                        leadershipTitle: "Regional Leadership",
+                        leadershipSub: "EcoTech Asia is guided by three founding partners based in Malaysia, China, and Japan, each with more than 30 years of experience.",
+                        leadershipIntro: "Together, they bring policy insight, industry experience, and regional networks, connecting China, Japan, and ASEAN markets.",
+                        partners: [
+                            { name: "Dr. KJ Lee", title: "Malaysia Partner", role: "Strategic Development", desc: "Academic fellow and international development professional.", background: ["Economic Affairs Officer at UN", "Senior Officer in ASEAN body", "Secretary-General of tech association", "PhD supervisor"], education: "MBA from Imperial College London, PhD from University of Canterbury.", oversight: "Oversees strategic planning and regional development from Penang." },
+                            { name: "Mr. Hasegawa", title: "Japan Partner", role: "Green Technology", desc: "Entrepreneur in international trade and recycling industries.", background: ["Resource recovery industry", "Solar energy solutions", "ESG-related advisory", "Supply chain development"], experience: "Former GM of major corporation in China.", travel: "Travels between Osaka, Tokyo, and Shanghai.", contribution: "Expertise in green technology and international trading systems." },
+                            { name: "Mr. Lo BW", title: "China Partner", role: "Manufacturing Industry", desc: "Entrepreneur based in Qingdao with extensive manufacturing experience.", background: ["Automotive components", "Industrial machinery", "Manufacturing technology", "Export markets"], experience: "Former GM of large manufacturing corporation in China.", contribution: "Supports China–ASEAN business collaboration and industrial partnerships." }
+                        ],
+                        contactTitle: "Contact Us",
+                        contactDetails: { tel: "+6016-9883142", wechat: "KhiamLee", email: "leekhiamjin@gmail.com", address: "No.1-2-9, Tingkat Bukit Kecil 3, The Sun, Bayan Lepas, 11900, Penang, MALAYSIA" },
+                        footer: "Together, we build a more sustainable future."
+                    },
+                    zh: {
+                        name: "EcoTech Asia Sdn Bhd",
+                        chineseName: "绿能科技亚洲有限公司",
+                        registration: "(公司注册号：1603357-D)",
+                        tagline: "创新，驱动可持续世界",
+                        about: "EcoTech Asia 是一家总部位于马来西亚槟城的战略咨询与可持续解决方案企业，业务网络覆盖马来西亚、中国、日本及更广泛的东盟地区。",
+                        aboutDetail: "我们专注于提供绿色可持续解决方案、企业战略咨询及跨境投资促进服务。通过融合区域专长与先进技术，助力组织实现可持续增长。",
+                        approach: "我们的方法整合了创新理念与人工智能洞察，为中小企业和投资者提供切实有效的解决方案。",
+                        vision: "愿景",
+                        visionText: "致力于成为备受尊敬和信赖的合作伙伴，赋能中小企业实现长期增长与韧性发展。",
+                        mission: "使命",
+                        missionText: "利用尖端技术与战略资源，提升企业运营效率与创新能力，助力企业实现可持续的卓越绩效。",
+                        servicesTitle: "我们的服务",
+                        servicesSub: "提供战略咨询、绿色技术解决方案及跨境业务促进服务，支持在东盟地区的可持续增长。",
+                        services: [
+                            { id: 1, title: "绿色与可持续商业战略", desc: "帮助企业将可持续发展理念融入其核心战略与运营之中。", items: ["可持续发展与 ESG 战略制定", "循环经济解决方案", "能效提升评估", "可持续制造转型", "绿色认证咨询"], outcome: "助力企业符合全球可持续发展标准。" },
+                            { id: 2, title: "中国—东盟市场准入咨询", desc: "为拓展东盟市场的中国企业提供全方位支持，帮助投资者了解区域环境。", items: ["东盟市场情报研究", "投资战略与本地化规划", "公司注册与合规指导", "政府关系与政策咨询", "跨境投资协调"], outcome: "实现高效、风险可控的市场准入。" },
+                            { id: 3, title: "战略商业对接与合作伙伴关系", desc: "通过广泛的区域网络，为企业对接战略合作伙伴与投资者。", items: ["商业合作伙伴甄选", "合资企业促成", "技术转让合作", "战略联盟发展", "供应链协同"], outcome: "建立高价值合作伙伴关系。" },
+                            { id: 4, title: "绿色技术与创新解决方案", desc: "支持企业采纳既能提升生产力并减少环境影响的创新技术。", items: ["可再生能源方案", "废弃物回收技术", "可持续农业系统", "智能制造转型", "AI 驱动的能效提升"], outcome: "实现技术驱动的可持续性。" },
+                            { id: 5, title: "可持续投资项目开发", desc: "协助投资者识别并开发整个东盟地区的高影响力项目。", items: ["可再生能源项目", "绿色制造业", "环保技术产业", "循环经济项目", "可持续农业"], outcome: "发掘符合可持续目标的投资机遇。" },
+                            { id: 6, title: "能力建设与商业辅导", desc: "旨在加强组织内部战略领导力与可持续发展能力的培训项目。", items: ["可持续转型工作坊", "中小企业领导力项目", "东盟市场战略培训", "投资准备度提升", "ESG 管理培训"], outcome: "培养具备可持续增长能力的领导者。" },
+                            { id: 7, title: "区域项目协调与实施", desc: "针对跨境项目提供端到端的协调与专业的项目管理支持。", items: ["项目规划与管理", "政府及监管机构联络", "多方利益相关者协调", "实施监控与报告", "风险与合规管理"], outcome: "成功执行复杂的区域性项目。" }
+                        ],
+                        leadershipTitle: "区域领导团队",
+                        leadershipSub: "由分别常驻马来西亚、中国和日本的三位创始合伙人领导，均拥有超过 30 年经验。",
+                        leadershipIntro: "他们融合政策洞察、行业经验与区域网络，成为连接中日及东盟市场的可信赖桥梁。",
+                        partners: [
+                            { name: "李谦仁博士", title: "马来西亚合伙人", role: "战略发展", desc: "学术研究员及国际发展专业人士，在多个全球机构拥有丰富经验。", background: ["曾任联合国经济事务官员", "曾任东盟组织高级官员", "曾任全球科技协会秘书长", "博士生导师"], education: "伦敦帝国理工学院 MBA，坎特伯雷大学博士。", oversight: "负责战略规划、运营及从槟城总部领导区域发展。" },
+                            { name: "长谷川先生", title: "日本合伙人", role: "绿色技术", desc: "国际贸易、资源回收及 ESG 领域经验丰富的企业家。", background: ["资源回收产业专家", "可再生能源解决方案", "ESG 咨询服务", "供应链发展"], experience: "曾任某在华大型企业总经理。", travel: "常往返于大阪、东京和上海。", contribution: "贡献绿色技术与国际贸易体系专长。" },
+                            { name: "刘文华先生", title: "中国合伙人", role: "制造业与市场拓展", desc: "常驻青岛的企业家，在制造业与国际贸易领域拥有丰富经验。", background: ["汽车零部件产业", "工业机械制造", "制造技术研发", "国际出口市场"], experience: "曾任某大型制造企业中国区总经理。", contribution: "支持中东盟商业合作与产业伙伴关系。" }
+                        ],
+                        contactTitle: "联系方式",
+                        contactDetails: { tel: "+6016-9883142", wechat: "KhiamLee", email: "leekhiamjin@gmail.com", address: "No.1-2-9, Tingkat Bukit Kecil 3, The Sun, Bayan Lepas, 11900, 槟城, 马来西亚" },
+                        footer: "携手共建，共筑可持续未来。"
+                    }
+                },
+                t() { return this.content[this.lang]; },
+                toggleLang() { this.lang = this.lang === 'en' ? 'zh' : 'en'; },
+                init() {
+                    console.log('EcoTech Asia App Initialized');
+                }
+            }));
+        });
+    </script>
+    
+    <!-- Alpine.js for lightweight reactivity -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900" 
+      x-data="appData" 
+      x-cloak>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-emerald-700" x-text="t().name"></span>
+                    <span x-show="lang === 'en'" class="text-xs text-slate-500 font-medium" x-text="t().chineseName"></span>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'About' : '关于我们'"></a>
+                    <a href="#services" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'Services' : '服务项目'"></a>
+                    <a href="#leadership" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'Leadership' : '领导团队'"></a>
+                    <a href="#contact" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'Contact' : '联系我们'"></a>
+                    <button 
+                        @click="toggleLang()"
+                        class="flex items-center space-x-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-700 text-sm font-semibold hover:bg-emerald-100 transition-all border border-emerald-100"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span x-text="lang === 'en' ? '中文' : 'English'"></span>
+                    </button>
+                </div>
+
+                <!-- Mobile Toggle -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button @click="toggleLang()" class="p-2 text-emerald-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </button>
+                    <button @click="isMenuOpen = !isMenuOpen" class="p-2 text-slate-900">
+                        <svg x-show="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        <svg x-show="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="isMenuOpen"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="md:hidden bg-white border-b border-slate-200">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#about" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'About' : '关于我们'"></a>
+                <a href="#services" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'Services' : '服务项目'"></a>
+                <a href="#leadership" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'Leadership' : '领导团队'"></a>
+                <a href="#contact" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'Contact' : '联系我们'"></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-24 lg:py-32 overflow-hidden bg-white">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#10b981_0,transparent_50%)]"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="max-w-3xl">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold tracking-wide uppercase mb-6" x-text="t().registration"></span>
+                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-8 leading-[1.1]" x-text="t().tagline"></h1>
+                <p class="text-xl text-slate-600 leading-relaxed mb-10" x-text="t().about"></p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#services" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200" x-text="lang === 'en' ? 'Our Services' : '查看服务'"></a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all" x-text="lang === 'en' ? 'Contact Us' : '联系我们'"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                        <span class="w-8 h-1 bg-emerald-600 rounded-full"></span>
+                        <span x-text="lang === 'en' ? 'About EcoTech Asia' : '关于 EcoTech Asia'"></span>
+                    </h2>
+                    <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                        <p x-text="t().aboutDetail"></p>
+                        <p x-text="t().approach"></p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 gap-8">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-emerald-700 mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            <span x-text="t().vision"></span>
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed italic" x-text="'&quot;' + t().visionText + '&quot;'"></p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-emerald-700 mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            <span x-text="t().mission"></span>
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed" x-text="t().missionText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl font-extrabold mb-6" x-text="t().servicesTitle"></h2>
+                <p class="text-lg text-slate-600" x-text="t().servicesSub"></p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="(service, idx) in t().services" :key="service.id">
+                    <div class="service-card bg-slate-50 p-8 rounded-3xl border border-slate-100 flex flex-col h-full">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-6 font-bold text-xl" x-text="idx + 1"></div>
+                        <h3 class="text-xl font-bold mb-4 leading-tight" x-text="service.title"></h3>
+                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="service.desc"></p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <template x-for="(item, i) in service.items" :key="i">
+                                <li class="flex items-start gap-2 text-sm text-slate-700">
+                                    <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                                    <span x-text="item"></span>
+                                </li>
+                            </template>
+                        </ul>
+
+                        <div class="pt-6 border-t border-slate-200">
+                            <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2 block" x-text="lang === 'en' ? 'Outcome' : '服务成果'"></span>
+                            <p class="text-sm font-medium text-slate-900" x-text="service.outcome"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-16">
+                <div class="lg:col-span-1">
+                    <h2 class="text-4xl font-extrabold mb-8" x-text="t().leadershipTitle"></h2>
+                    <p class="text-slate-400 text-lg mb-8" x-text="t().leadershipSub"></p>
+                    <p class="text-slate-300 leading-relaxed border-l-2 border-emerald-500 pl-6 py-2" x-text="t().leadershipIntro"></p>
+                </div>
+                
+                <div class="lg:col-span-2 space-y-12">
+                    <template x-for="(partner, idx) in t().partners" :key="idx">
+                        <div class="bg-white/5 p-8 lg:p-12 rounded-[2rem] border border-white/10 backdrop-blur-sm">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                                <div>
+                                    <h3 class="text-3xl font-bold text-emerald-400" x-text="partner.name"></h3>
+                                    <p class="text-emerald-100/60 font-medium" x-text="partner.title"></p>
+                                </div>
+                                <div class="text-left md:text-right">
+                                    <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-bold border border-emerald-500/20" x-text="partner.role"></span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-slate-300 mb-8 text-lg leading-relaxed" x-text="partner.desc"></p>
+                            
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                        <span x-text="lang === 'en' ? 'Background' : '职业背景'"></span>
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        <template x-for="(item, i) in partner.background" :key="i">
+                                            <li class="text-sm text-slate-400 flex items-start gap-2">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></div>
+                                                <span x-text="item"></span>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                                <template x-if="partner.interests">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                            <span x-text="lang === 'en' ? 'Interests' : '专业领域'"></span>
+                                        </h4>
+                                        <ul class="space-y-2">
+                                            <template x-for="(item, i) in partner.interests" :key="i">
+                                                <li class="text-sm text-slate-400 flex items-start gap-2">
+                                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></div>
+                                                    <span x-text="item"></span>
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </template>
+                            </div>
+
+                            <template x-if="partner.education">
+                                <div class="pt-8 border-t border-white/10">
+                                    <div class="flex items-start gap-4">
+                                        <svg class="w-6 h-6 text-emerald-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                        <div>
+                                            <p class="text-sm text-slate-300 mb-2" x-text="partner.education"></p>
+                                            <p class="text-sm text-slate-400" x-text="partner.oversight"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template x-if="partner.experience">
+                                <div class="pt-8 border-t border-white/10 space-y-4">
+                                    <p class="text-sm text-slate-300" x-text="partner.experience"></p>
+                                    <template x-if="partner.travel">
+                                        <p class="text-sm text-slate-400" x-text="partner.travel"></p>
+                                    </template>
+                                    <p class="text-sm font-bold text-emerald-400" x-text="partner.contribution"></p>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-emerald-600 rounded-[3rem] p-8 lg:p-20 text-white overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+                
+                <div class="grid lg:grid-cols-2 gap-16 relative">
+                    <div>
+                        <h2 class="text-4xl font-extrabold mb-8" x-text="t().contactTitle"></h2>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-emerald-100 text-sm font-bold uppercase tracking-wider mb-1">Tel & WhatsApp</p>
+                                    <a :href="'tel:' + t().contactDetails.tel" class="text-2xl font-bold hover:underline" x-text="t().contactDetails.tel"></a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-emerald-100 text-sm font-bold uppercase tracking-wider mb-1">WeChat</p>
+                                    <p class="text-2xl font-bold" x-text="t().contactDetails.wechat"></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-6">
+                                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-emerald-100 text-sm font-bold uppercase tracking-wider mb-1">Email</p>
+                                    <a :href="'mailto:' + t().contactDetails.email" class="text-2xl font-bold hover:underline" x-text="t().contactDetails.email"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md p-8 lg:p-12 rounded-[2rem] border border-white/20">
+                        <div class="flex items-start gap-6 mb-8">
+                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-4" x-text="lang === 'en' ? 'Corporate Office' : '公司总部地址'"></h3>
+                                <p class="text-emerald-50 leading-relaxed text-lg" x-text="t().contactDetails.address"></p>
+                            </div>
+                        </div>
+                        <div class="pt-8 border-t border-white/20">
+                            <p class="text-sm font-medium text-emerald-100 opacity-80" x-text="lang === 'en' ? 'Operating across Malaysia, China, Japan, and ASEAN.' : '业务覆盖马来西亚、中国、日本及东盟地区。'"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex flex-col items-center gap-4">
+                <div class="flex items-center gap-2 text-emerald-700 font-bold">
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 7a7 7 0 0 1-7 7c-1.07 0-2.09-.25-3-.7L11 20z"/><path d="M11 20c-1.07 0-2.09-.25-3-.7L5 22l1.3-3c-1.21-1.35-1.9-3.1-1.9-5a7.12 7.12 0 0 1 .7-3"/></svg>
+                    <span x-text="t().name"></span>
+                </div>
+                <p class="text-slate-500 font-medium" x-text="t().footer"></p>
+                <p class="text-slate-400 text-xs mt-4">
+                    © <span x-text="new Date().getFullYear()"></span> <span x-text="t().name"></span> <span x-text="t().registration"></span>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
