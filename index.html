@@ -2,52 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>EcoTech Asia Sdn Bhd</title>
+    
+    <!-- Base Fallback Styles: Ensuring mobile devices show a clean layout even if CDN fails -->
+    <style>
+        :root { --emerald-700: #047857; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            background-color: #f8fafc;
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+        }
+        [x-cloak] { display: none !important; }
+        nav { background: white; border-bottom: 1px solid #e2e8f0; }
+        .fallback-container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    </style>
+
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        [x-cloak] { display: none !important; }
-
-        .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        @media (min-width: 1024px) {
-            .service-card:hover {
-                transform: translateY(-5px);
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-['Inter',_sans-serif] scroll-smooth;
             }
         }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #10b981;
-            border-radius: 10px;
-        }
-
-        /* Prevent text overflow on very small devices */
-        .hyphens-auto {
-            hyphens: auto;
+        @layer components {
+            .service-card {
+                @apply transition-all duration-300;
+            }
+            @media (min-width: 1024px) {
+                .service-card:hover {
+                    @apply -translate-y-1;
+                }
+            }
         }
     </style>
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
+
+        .hyphens-auto { hyphens: auto; }
+    </style>
+
     <script>
-        document.addEventListener('alpine:init', () => {
+        // Move initialization to a more robust event listener
+        window.addEventListener('alpine:init', () => {
             Alpine.data('appData', () => ({
                 lang: 'en',
                 isMenuOpen: false,
@@ -116,7 +124,7 @@
                         partners: [
                             { name: "李谦仁博士", title: "马来西亚合伙人", role: "战略发展", desc: "学术研究员及国际发展专业人士，在多个全球机构拥有丰富经验。", background: ["曾任联合国经济事务官员", "曾任东盟组织高级官员", "曾任全球科技协会秘书长", "博士生导师"], education: "伦敦帝国理工学院 MBA，坎特伯雷大学博士。", oversight: "负责战略规划、运营及从槟城总部领导区域发展。" },
                             { name: "长谷川先生", title: "日本合伙人", role: "绿色技术", desc: "国际贸易、资源回收及 ESG 领域经验丰富的企业家。", background: ["资源回收产业专家", "可再生能源解决方案", "ESG 咨询服务", "供应链发展"], experience: "曾任某在华大型企业总经理。", travel: "常往返于大阪、东京和上海。", contribution: "贡献绿色技术与国际贸易体系专长。" },
-                            { name: "刘文华先生", title: "中国合伙人", role: "制造业与市场拓展", desc: "常驻青岛的企业家，在制造业与国际贸易领域拥有丰富经验。", background: ["汽车零部件产业", "工业机械制造", "制造技术研发", "国际出口市场"], experience: "曾任某大型制造企业中国区总经理。", contribution: "支持中东盟商业合作与产业伙伴关系。" }
+                            { name: "刘文华先生", title: "中国合伙人", role: "制造业与 market 拓展", desc: "常驻青岛的企业家，在制造业与国际贸易领域拥有丰富经验。", background: ["汽车零部件产业", "工业机械制造", "制造技术研发", "国际出口市场"], experience: "曾任某大型制造企业中国区总经理。", contribution: "支持中东盟商业合作与产业伙伴关系。" }
                         ],
                         contactTitle: "联系方式",
                         contactDetails: { tel: "+6016-9883142", wechat: "KhiamLee", email: "leekhiamjin@gmail.com", address: "No.1-2-9, Tingkat Bukit Kecil 3, The Sun, Bayan Lepas, 11900, 槟城, 马来西亚" },
@@ -124,15 +132,12 @@
                     }
                 },
                 t() { return this.content[this.lang]; },
-                toggleLang() { this.lang = this.lang === 'en' ? 'zh' : 'en'; },
-                init() {
-                    console.log('EcoTech Asia Responsive App Initialized');
-                }
+                toggleLang() { this.lang = this.lang === 'en' ? 'zh' : 'en'; }
             }));
         });
     </script>
     
-    <!-- Alpine.js -->
+    <!-- Alpine.js (Loaded after data definition) -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden" 
@@ -189,14 +194,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative py-16 sm:py-24 lg:py-32 overflow-hidden bg-white">
+    <header class="relative py-12 sm:py-24 lg:py-32 overflow-hidden bg-white">
         <div class="absolute inset-0 opacity-5 pointer-events-none">
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#10b981_0,transparent_50%)]"></div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="max-w-3xl">
                 <span class="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] sm:text-xs font-bold tracking-wide uppercase mb-4 sm:mb-6" x-text="t().registration"></span>
-                <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]" x-text="t().tagline"></h1>
+                <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 sm:mb-8 leading-tight sm:leading-none" x-text="t().tagline"></h1>
                 <p class="text-base sm:text-xl text-slate-600 leading-relaxed mb-8 sm:mb-10" x-text="t().about"></p>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <a href="#services" class="px-6 py-3.5 sm:px-8 sm:py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200 text-center" x-text="lang === 'en' ? 'Our Services' : '查看服务'"></a>
@@ -207,9 +212,9 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-16 sm:py-24 bg-slate-50">
+    <section id="about" class="py-12 sm:py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <div>
                     <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center gap-3">
                         <span class="w-6 sm:w-8 h-1 bg-emerald-600 rounded-full"></span>
@@ -220,15 +225,15 @@
                         <p x-text="t().approach"></p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 gap-6 sm:gap-8">
-                    <div class="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100">
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100">
                         <h3 class="text-lg sm:text-xl font-bold text-emerald-700 mb-3 sm:mb-4 flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                             <span x-text="t().vision"></span>
                         </h3>
                         <p class="text-slate-600 leading-relaxed italic text-sm sm:text-base" x-text="'&quot;' + t().visionText + '&quot;'"></p>
                     </div>
-                    <div class="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100">
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100">
                         <h3 class="text-lg sm:text-xl font-bold text-emerald-700 mb-3 sm:mb-4 flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                             <span x-text="t().mission"></span>
@@ -241,17 +246,17 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 sm:py-24 bg-white">
+    <section id="services" class="py-12 sm:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-20">
                 <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 sm:mb-6" x-text="t().servicesTitle"></h2>
                 <p class="text-base sm:text-lg text-slate-600 px-2" x-text="t().servicesSub"></p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <template x-for="(service, idx) in t().services" :key="service.id">
-                    <div class="service-card bg-slate-50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 flex flex-col h-full shadow-sm">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 text-emerald-700 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 font-bold text-lg sm:text-xl" x-text="idx + 1"></div>
+                    <div class="service-card bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-100 flex flex-col h-full shadow-sm">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center mb-4 sm:mb-6 font-bold text-lg sm:text-xl" x-text="idx + 1"></div>
                         <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 leading-tight" x-text="service.title"></h3>
                         <p class="text-slate-600 text-xs sm:text-sm mb-4 sm:mb-6 flex-grow" x-text="service.desc"></p>
                         
@@ -275,18 +280,18 @@
     </section>
 
     <!-- Leadership Section -->
-    <section id="leadership" class="py-16 sm:py-24 bg-slate-900 text-white overflow-hidden">
+    <section id="leadership" class="py-12 sm:py-24 bg-slate-900 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-12 lg:gap-16">
+            <div class="grid lg:grid-cols-3 gap-10 lg:gap-16">
                 <div class="lg:col-span-1">
                     <h2 class="text-3xl sm:text-4xl font-extrabold mb-6 sm:mb-8" x-text="t().leadershipTitle"></h2>
                     <p class="text-slate-400 text-base sm:text-lg mb-6 sm:mb-8" x-text="t().leadershipSub"></p>
                     <p class="text-slate-300 leading-relaxed border-l-2 border-emerald-500 pl-4 sm:pl-6 py-2 text-sm sm:text-base" x-text="t().leadershipIntro"></p>
                 </div>
                 
-                <div class="lg:col-span-2 space-y-8 sm:space-y-12">
+                <div class="lg:col-span-2 space-y-8">
                     <template x-for="(partner, idx) in t().partners" :key="idx">
-                        <div class="bg-white/5 p-6 sm:p-10 lg:p-12 rounded-2xl sm:rounded-[2rem] border border-white/10 backdrop-blur-sm">
+                        <div class="bg-white/5 p-6 sm:p-10 rounded-2xl border border-white/10 backdrop-blur-sm">
                             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
                                 <div>
                                     <h3 class="text-2xl sm:text-3xl font-bold text-emerald-400" x-text="partner.name"></h3>
@@ -299,7 +304,7 @@
                             
                             <p class="text-slate-300 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed" x-text="partner.desc"></p>
                             
-                            <div class="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <h4 class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 sm:mb-4 flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
@@ -326,7 +331,6 @@
                                                 <span x-text="item"></span>
                                             </li>
                                         </template>
-                                        <!-- Fallback for partners without specific interests field -->
                                         <template x-if="partner.contribution">
                                             <li class="text-[13px] sm:text-sm font-bold text-emerald-400" x-text="partner.contribution"></li>
                                         </template>
@@ -345,15 +349,6 @@
                                     </div>
                                 </div>
                             </template>
-
-                            <template x-if="partner.experience">
-                                <div class="pt-6 sm:pt-8 border-t border-white/10 space-y-3 sm:space-y-4">
-                                    <p class="text-[13px] sm:text-sm text-slate-300" x-text="partner.experience"></p>
-                                    <template x-if="partner.travel">
-                                        <p class="text-[12px] sm:text-sm text-slate-400" x-text="partner.travel"></p>
-                                    </template>
-                                </div>
-                            </template>
                         </div>
                     </template>
                 </div>
@@ -362,56 +357,56 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 sm:py-24 bg-white">
+    <section id="contact" class="py-12 sm:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-emerald-600 rounded-3xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-20 text-white overflow-hidden relative shadow-2xl">
-                <div class="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none"></div>
+            <div class="bg-emerald-600 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-20 text-white overflow-hidden relative shadow-lg">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none"></div>
                 
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 relative">
+                <div class="grid lg:grid-cols-2 gap-10 relative">
                     <div>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 sm:mb-10" x-text="t().contactTitle"></h2>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold mb-8" x-text="t().contactTitle"></h2>
                         <div class="space-y-6 sm:space-y-8">
-                            <div class="flex items-start gap-4 sm:gap-6">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 </div>
                                 <div class="min-w-0">
-                                    <p class="text-emerald-100 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Tel & WhatsApp</p>
+                                    <p class="text-emerald-100 text-[10px] font-bold uppercase tracking-wider mb-1">Tel & WhatsApp</p>
                                     <a :href="'tel:' + t().contactDetails.tel" class="text-lg sm:text-2xl font-bold hover:underline break-words" x-text="t().contactDetails.tel"></a>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4 sm:gap-6">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                                 </div>
                                 <div class="min-w-0">
-                                    <p class="text-emerald-100 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">WeChat</p>
+                                    <p class="text-emerald-100 text-[10px] font-bold uppercase tracking-wider mb-1">WeChat</p>
                                     <p class="text-lg sm:text-2xl font-bold break-words" x-text="t().contactDetails.wechat"></p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4 sm:gap-6">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                                 </div>
                                 <div class="min-w-0">
-                                    <p class="text-emerald-100 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Email</p>
+                                    <p class="text-emerald-100 text-[10px] font-bold uppercase tracking-wider mb-1">Email</p>
                                     <a :href="'mailto:' + t().contactDetails.email" class="text-lg sm:text-2xl font-bold hover:underline break-all" x-text="t().contactDetails.email"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white/10 backdrop-blur-md p-6 sm:p-10 lg:p-12 rounded-2xl sm:rounded-[2rem] border border-white/20 shadow-inner">
-                        <div class="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
-                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div class="bg-white/10 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/20">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             </div>
                             <div>
-                                <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4" x-text="lang === 'en' ? 'Corporate Office' : '公司总部地址'"></h3>
+                                <h3 class="text-lg sm:text-xl font-bold mb-3" x-text="lang === 'en' ? 'Corporate Office' : '公司总部地址'"></h3>
                                 <p class="text-emerald-50 leading-relaxed text-sm sm:text-lg hyphens-auto" x-text="t().contactDetails.address"></p>
                             </div>
                         </div>
-                        <div class="pt-6 sm:pt-8 border-t border-white/20">
+                        <div class="pt-6 border-t border-white/20">
                             <p class="text-xs sm:text-sm font-medium text-emerald-100 opacity-80" x-text="lang === 'en' ? 'Operating across Malaysia, China, Japan, and ASEAN.' : '业务覆盖马来西亚、中国、日本及东盟地区。'"></p>
                         </div>
                     </div>
@@ -421,7 +416,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-slate-50 border-t border-slate-200">
+    <footer class="py-10 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex flex-col items-center gap-4">
                 <div class="flex items-center gap-2 text-emerald-700 font-bold">
@@ -429,7 +424,7 @@
                     <span x-text="t().name"></span>
                 </div>
                 <p class="text-slate-500 font-medium text-sm sm:text-base px-4" x-text="t().footer"></p>
-                <p class="text-slate-400 text-[10px] sm:text-xs mt-4">
+                <p class="text-slate-400 text-[10px] mt-4">
                     © <span x-text="new Date().getFullYear()"></span> <span x-text="t().name"></span> <span x-text="t().registration"></span>. All rights reserved.
                 </p>
             </div>
