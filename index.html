@@ -13,25 +13,36 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
         [x-cloak] { display: none !important; }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Custom scrollbar for better look */
+        @media (min-width: 1024px) {
+            .service-card:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
             background: #10b981;
-            border-radius: 4px;
+            border-radius: 10px;
+        }
+
+        /* Prevent text overflow on very small devices */
+        .hyphens-auto {
+            hyphens: auto;
         }
     </style>
 
@@ -68,9 +79,9 @@
                         leadershipSub: "EcoTech Asia is guided by three founding partners based in Malaysia, China, and Japan, each with more than 30 years of experience.",
                         leadershipIntro: "Together, they bring policy insight, industry experience, and regional networks, connecting China, Japan, and ASEAN markets.",
                         partners: [
-                            { name: "Dr. KJ Lee", title: "Malaysia Partner", role: "Strategic Development", desc: "Academic fellow and international development professional.", background: ["Economic Affairs Officer at UN", "Senior Officer in ASEAN body", "Secretary-General of tech association", "PhD supervisor"], education: "MBA from Imperial College London, PhD from University of Canterbury.", oversight: "Oversees strategic planning and regional development from Penang." },
-                            { name: "Mr. Hasegawa", title: "Japan Partner", role: "Green Technology", desc: "Entrepreneur in international trade and recycling industries.", background: ["Resource recovery industry", "Solar energy solutions", "ESG-related advisory", "Supply chain development"], experience: "Former GM of major corporation in China.", travel: "Travels between Osaka, Tokyo, and Shanghai.", contribution: "Expertise in green technology and international trading systems." },
-                            { name: "Mr. Lo BW", title: "China Partner", role: "Manufacturing Industry", desc: "Entrepreneur based in Qingdao with extensive manufacturing experience.", background: ["Automotive components", "Industrial machinery", "Manufacturing technology", "Export markets"], experience: "Former GM of large manufacturing corporation in China.", contribution: "Supports China–ASEAN business collaboration and industrial partnerships." }
+                            { name: "Dr. KJ Lee", title: "Malaysia Partner", role: "Strategic Development", desc: "Academic fellow and international development professional with extensive experience across global institutions and regional organizations.", background: ["Economic Affairs Officer at UN", "Senior Officer in ASEAN body", "Secretary-General of tech association", "PhD supervisor"], education: "MBA from Imperial College London, PhD from University of Canterbury.", oversight: "Oversees strategic planning and regional development from Penang." },
+                            { name: "Mr. Hasegawa", title: "Japan Partner", role: "Green Technology", desc: "Entrepreneur in international trade and recycling industries with a focus on resource recovery.", background: ["Resource recovery industry", "Solar energy solutions", "ESG-related advisory", "Supply chain development"], experience: "Former GM of major corporation in China.", travel: "Travels between Osaka, Tokyo, and Shanghai.", contribution: "Expertise in green technology and international trading systems." },
+                            { name: "Mr. Lo BW", title: "China Partner", role: "Manufacturing Industry", desc: "Entrepreneur based in Qingdao with extensive manufacturing experience and industrial supply chain knowledge.", background: ["Automotive components", "Industrial machinery", "Manufacturing technology", "Export markets"], experience: "Former GM of large manufacturing corporation in China.", contribution: "Supports China–ASEAN business collaboration and industrial partnerships." }
                         ],
                         contactTitle: "Contact Us",
                         contactDetails: { tel: "+6016-9883142", wechat: "KhiamLee", email: "leekhiamjin@gmail.com", address: "No.1-2-9, Tingkat Bukit Kecil 3, The Sun, Bayan Lepas, 11900, Penang, MALAYSIA" },
@@ -92,7 +103,7 @@
                         servicesSub: "提供战略咨询、绿色技术解决方案及跨境业务促进服务，支持在东盟地区的可持续增长。",
                         services: [
                             { id: 1, title: "绿色与可持续商业战略", desc: "帮助企业将可持续发展理念融入其核心战略与运营之中。", items: ["可持续发展与 ESG 战略制定", "循环经济解决方案", "能效提升评估", "可持续制造转型", "绿色认证咨询"], outcome: "助力企业符合全球可持续发展标准。" },
-                            { id: 2, title: "中国—东盟市场准入咨询", desc: "为拓展东盟市场的中国企业提供全方位支持，帮助投资者了解区域环境。", items: ["东盟市场情报研究", "投资战略与本地化规划", "公司注册与合规指导", "政府关系与政策咨询", "跨境投资协调"], outcome: "实现高效、风险可控的市场准入。" },
+                            { id: 2, title: "中国—东盟 market 准入咨询", desc: "为拓展东盟市场的中国企业提供全方位支持，帮助投资者了解区域环境。", items: ["东盟市场情报研究", "投资战略与本地化规划", "公司注册与合规指导", "政府关系与政策咨询", "跨境投资协调"], outcome: "实现高效、风险可控的市场准入。" },
                             { id: 3, title: "战略商业对接与合作伙伴关系", desc: "通过广泛的区域网络，为企业对接战略合作伙伴与投资者。", items: ["商业合作伙伴甄选", "合资企业促成", "技术转让合作", "战略联盟发展", "供应链协同"], outcome: "建立高价值合作伙伴关系。" },
                             { id: 4, title: "绿色技术与创新解决方案", desc: "支持企业采纳既能提升生产力并减少环境影响的创新技术。", items: ["可再生能源方案", "废弃物回收技术", "可持续农业系统", "智能制造转型", "AI 驱动的能效提升"], outcome: "实现技术驱动的可持续性。" },
                             { id: 5, title: "可持续投资项目开发", desc: "协助投资者识别并开发整个东盟地区的高影响力项目。", items: ["可再生能源项目", "绿色制造业", "环保技术产业", "循环经济项目", "可持续农业"], outcome: "发掘符合可持续目标的投资机遇。" },
@@ -115,30 +126,30 @@
                 t() { return this.content[this.lang]; },
                 toggleLang() { this.lang = this.lang === 'en' ? 'zh' : 'en'; },
                 init() {
-                    console.log('EcoTech Asia App Initialized');
+                    console.log('EcoTech Asia Responsive App Initialized');
                 }
             }));
         });
     </script>
     
-    <!-- Alpine.js for lightweight reactivity -->
+    <!-- Alpine.js -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900" 
+<body class="bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden" 
       x-data="appData" 
       x-cloak>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex flex-col">
-                    <span class="text-xl font-bold tracking-tight text-emerald-700" x-text="t().name"></span>
-                    <span x-show="lang === 'en'" class="text-xs text-slate-500 font-medium" x-text="t().chineseName"></span>
+            <div class="flex justify-between h-16 sm:h-20 items-center">
+                <div class="flex flex-col min-w-0">
+                    <span class="text-lg sm:text-xl font-bold tracking-tight text-emerald-700 truncate" x-text="t().name"></span>
+                    <span x-show="lang === 'en'" class="text-[10px] sm:text-xs text-slate-500 font-medium truncate" x-text="t().chineseName"></span>
                 </div>
                 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#about" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'About' : '关于我们'"></a>
                     <a href="#services" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'Services' : '服务项目'"></a>
                     <a href="#leadership" class="text-sm font-medium hover:text-emerald-600 transition-colors" x-text="lang === 'en' ? 'Leadership' : '领导团队'"></a>
@@ -153,11 +164,11 @@
                 </div>
 
                 <!-- Mobile Toggle -->
-                <div class="md:hidden flex items-center space-x-4">
-                    <button @click="toggleLang()" class="p-2 text-emerald-700">
+                <div class="md:hidden flex items-center space-x-2 sm:space-x-4">
+                    <button @click="toggleLang()" class="p-2 text-emerald-700 hover:bg-emerald-50 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </button>
-                    <button @click="isMenuOpen = !isMenuOpen" class="p-2 text-slate-900">
+                    <button @click="isMenuOpen = !isMenuOpen" class="p-2 text-slate-900 hover:bg-slate-100 rounded-lg">
                         <svg x-show="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                         <svg x-show="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                     </button>
@@ -166,66 +177,63 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div x-show="isMenuOpen"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             class="md:hidden bg-white border-b border-slate-200">
+        <div x-show="isMenuOpen" x-transition @click.away="isMenuOpen = false"
+             class="md:hidden bg-white border-b border-slate-200 shadow-xl overflow-hidden">
             <div class="px-4 py-6 space-y-4">
-                <a href="#about" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'About' : '关于我们'"></a>
-                <a href="#services" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'Services' : '服务项目'"></a>
-                <a href="#leadership" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'Leadership' : '领导团队'"></a>
-                <a href="#contact" @click="isMenuOpen = false" class="block text-lg font-medium" x-text="lang === 'en' ? 'Contact' : '联系我们'"></a>
+                <a href="#about" @click="isMenuOpen = false" class="block text-lg font-medium p-2 hover:bg-slate-50 rounded-lg" x-text="lang === 'en' ? 'About' : '关于我们'"></a>
+                <a href="#services" @click="isMenuOpen = false" class="block text-lg font-medium p-2 hover:bg-slate-50 rounded-lg" x-text="lang === 'en' ? 'Services' : '服务项目'"></a>
+                <a href="#leadership" @click="isMenuOpen = false" class="block text-lg font-medium p-2 hover:bg-slate-50 rounded-lg" x-text="lang === 'en' ? 'Leadership' : '领导团队'"></a>
+                <a href="#contact" @click="isMenuOpen = false" class="block text-lg font-medium p-2 hover:bg-slate-50 rounded-lg" x-text="lang === 'en' ? 'Contact' : '联系我们'"></a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative py-24 lg:py-32 overflow-hidden bg-white">
+    <header class="relative py-16 sm:py-24 lg:py-32 overflow-hidden bg-white">
         <div class="absolute inset-0 opacity-5 pointer-events-none">
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#10b981_0,transparent_50%)]"></div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="max-w-3xl">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold tracking-wide uppercase mb-6" x-text="t().registration"></span>
-                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-8 leading-[1.1]" x-text="t().tagline"></h1>
-                <p class="text-xl text-slate-600 leading-relaxed mb-10" x-text="t().about"></p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#services" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200" x-text="lang === 'en' ? 'Our Services' : '查看服务'"></a>
-                    <a href="#contact" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all" x-text="lang === 'en' ? 'Contact Us' : '联系我们'"></a>
+                <span class="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] sm:text-xs font-bold tracking-wide uppercase mb-4 sm:mb-6" x-text="t().registration"></span>
+                <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]" x-text="t().tagline"></h1>
+                <p class="text-base sm:text-xl text-slate-600 leading-relaxed mb-8 sm:mb-10" x-text="t().about"></p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <a href="#services" class="px-6 py-3.5 sm:px-8 sm:py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200 text-center" x-text="lang === 'en' ? 'Our Services' : '查看服务'"></a>
+                    <a href="#contact" class="px-6 py-3.5 sm:px-8 sm:py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all text-center" x-text="lang === 'en' ? 'Contact Us' : '联系我们'"></a>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-slate-50">
+    <section id="about" class="py-16 sm:py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                        <span class="w-8 h-1 bg-emerald-600 rounded-full"></span>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center gap-3">
+                        <span class="w-6 sm:w-8 h-1 bg-emerald-600 rounded-full"></span>
                         <span x-text="lang === 'en' ? 'About EcoTech Asia' : '关于 EcoTech Asia'"></span>
                     </h2>
-                    <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                    <div class="space-y-4 sm:space-y-6 text-slate-600 text-base sm:text-lg leading-relaxed">
                         <p x-text="t().aboutDetail"></p>
                         <p x-text="t().approach"></p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 gap-8">
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                        <h3 class="text-xl font-bold text-emerald-700 mb-4 flex items-center gap-2">
+                <div class="grid grid-cols-1 gap-6 sm:gap-8">
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100">
+                        <h3 class="text-lg sm:text-xl font-bold text-emerald-700 mb-3 sm:mb-4 flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                             <span x-text="t().vision"></span>
                         </h3>
-                        <p class="text-slate-600 leading-relaxed italic" x-text="'&quot;' + t().visionText + '&quot;'"></p>
+                        <p class="text-slate-600 leading-relaxed italic text-sm sm:text-base" x-text="'&quot;' + t().visionText + '&quot;'"></p>
                     </div>
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                        <h3 class="text-xl font-bold text-emerald-700 mb-4 flex items-center gap-2">
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100">
+                        <h3 class="text-lg sm:text-xl font-bold text-emerald-700 mb-3 sm:mb-4 flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                             <span x-text="t().mission"></span>
                         </h3>
-                        <p class="text-slate-600 leading-relaxed" x-text="t().missionText"></p>
+                        <p class="text-slate-600 leading-relaxed text-sm sm:text-base" x-text="t().missionText"></p>
                     </div>
                 </div>
             </div>
@@ -233,32 +241,32 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 bg-white">
+    <section id="services" class="py-16 sm:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-4xl font-extrabold mb-6" x-text="t().servicesTitle"></h2>
-                <p class="text-lg text-slate-600" x-text="t().servicesSub"></p>
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 sm:mb-6" x-text="t().servicesTitle"></h2>
+                <p class="text-base sm:text-lg text-slate-600 px-2" x-text="t().servicesSub"></p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <template x-for="(service, idx) in t().services" :key="service.id">
-                    <div class="service-card bg-slate-50 p-8 rounded-3xl border border-slate-100 flex flex-col h-full">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-6 font-bold text-xl" x-text="idx + 1"></div>
-                        <h3 class="text-xl font-bold mb-4 leading-tight" x-text="service.title"></h3>
-                        <p class="text-slate-600 text-sm mb-6 flex-grow" x-text="service.desc"></p>
+                    <div class="service-card bg-slate-50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 flex flex-col h-full shadow-sm">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-100 text-emerald-700 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 font-bold text-lg sm:text-xl" x-text="idx + 1"></div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 leading-tight" x-text="service.title"></h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 sm:mb-6 flex-grow" x-text="service.desc"></p>
                         
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
                             <template x-for="(item, i) in service.items" :key="i">
-                                <li class="flex items-start gap-2 text-sm text-slate-700">
-                                    <svg class="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                                <li class="flex items-start gap-2 text-[13px] sm:text-sm text-slate-700">
+                                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                                     <span x-text="item"></span>
                                 </li>
                             </template>
                         </ul>
 
-                        <div class="pt-6 border-t border-slate-200">
-                            <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2 block" x-text="lang === 'en' ? 'Outcome' : '服务成果'"></span>
-                            <p class="text-sm font-medium text-slate-900" x-text="service.outcome"></p>
+                        <div class="pt-4 sm:pt-6 border-t border-slate-200">
+                            <span class="text-[10px] sm:text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1.5 sm:mb-2 block" x-text="lang === 'en' ? 'Outcome' : '服务成果'"></span>
+                            <p class="text-[13px] sm:text-sm font-medium text-slate-900" x-text="service.outcome"></p>
                         </div>
                     </div>
                 </template>
@@ -267,82 +275,83 @@
     </section>
 
     <!-- Leadership Section -->
-    <section id="leadership" class="py-24 bg-slate-900 text-white overflow-hidden">
+    <section id="leadership" class="py-16 sm:py-24 bg-slate-900 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-16">
+            <div class="grid lg:grid-cols-3 gap-12 lg:gap-16">
                 <div class="lg:col-span-1">
-                    <h2 class="text-4xl font-extrabold mb-8" x-text="t().leadershipTitle"></h2>
-                    <p class="text-slate-400 text-lg mb-8" x-text="t().leadershipSub"></p>
-                    <p class="text-slate-300 leading-relaxed border-l-2 border-emerald-500 pl-6 py-2" x-text="t().leadershipIntro"></p>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-6 sm:mb-8" x-text="t().leadershipTitle"></h2>
+                    <p class="text-slate-400 text-base sm:text-lg mb-6 sm:mb-8" x-text="t().leadershipSub"></p>
+                    <p class="text-slate-300 leading-relaxed border-l-2 border-emerald-500 pl-4 sm:pl-6 py-2 text-sm sm:text-base" x-text="t().leadershipIntro"></p>
                 </div>
                 
-                <div class="lg:col-span-2 space-y-12">
+                <div class="lg:col-span-2 space-y-8 sm:space-y-12">
                     <template x-for="(partner, idx) in t().partners" :key="idx">
-                        <div class="bg-white/5 p-8 lg:p-12 rounded-[2rem] border border-white/10 backdrop-blur-sm">
-                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                        <div class="bg-white/5 p-6 sm:p-10 lg:p-12 rounded-2xl sm:rounded-[2rem] border border-white/10 backdrop-blur-sm">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
                                 <div>
-                                    <h3 class="text-3xl font-bold text-emerald-400" x-text="partner.name"></h3>
-                                    <p class="text-emerald-100/60 font-medium" x-text="partner.title"></p>
+                                    <h3 class="text-2xl sm:text-3xl font-bold text-emerald-400" x-text="partner.name"></h3>
+                                    <p class="text-emerald-100/60 font-medium text-sm sm:text-base" x-text="partner.title"></p>
                                 </div>
-                                <div class="text-left md:text-right">
-                                    <span class="inline-block px-4 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-bold border border-emerald-500/20" x-text="partner.role"></span>
+                                <div class="text-left sm:text-right">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs sm:text-sm font-bold border border-emerald-500/20" x-text="partner.role"></span>
                                 </div>
                             </div>
                             
-                            <p class="text-slate-300 mb-8 text-lg leading-relaxed" x-text="partner.desc"></p>
+                            <p class="text-slate-300 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed" x-text="partner.desc"></p>
                             
-                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div class="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
                                 <div>
-                                    <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                    <h4 class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 sm:mb-4 flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                                         <span x-text="lang === 'en' ? 'Background' : '职业背景'"></span>
                                     </h4>
                                     <ul class="space-y-2">
                                         <template x-for="(item, i) in partner.background" :key="i">
-                                            <li class="text-sm text-slate-400 flex items-start gap-2">
+                                            <li class="text-[13px] sm:text-sm text-slate-400 flex items-start gap-2">
                                                 <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></div>
                                                 <span x-text="item"></span>
                                             </li>
                                         </template>
                                     </ul>
                                 </div>
-                                <template x-if="partner.interests">
-                                    <div>
-                                        <h4 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                            <span x-text="lang === 'en' ? 'Interests' : '专业领域'"></span>
-                                        </h4>
-                                        <ul class="space-y-2">
-                                            <template x-for="(item, i) in partner.interests" :key="i">
-                                                <li class="text-sm text-slate-400 flex items-start gap-2">
-                                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></div>
-                                                    <span x-text="item"></span>
-                                                </li>
-                                            </template>
-                                        </ul>
-                                    </div>
-                                </template>
+                                <div>
+                                    <h4 class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 sm:mb-4 flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                        <span x-text="lang === 'en' ? 'Interests' : '专业领域'"></span>
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        <template x-for="(item, i) in (partner.interests || [])" :key="i">
+                                            <li class="text-[13px] sm:text-sm text-slate-400 flex items-start gap-2">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></div>
+                                                <span x-text="item"></span>
+                                            </li>
+                                        </template>
+                                        <!-- Fallback for partners without specific interests field -->
+                                        <template x-if="partner.contribution">
+                                            <li class="text-[13px] sm:text-sm font-bold text-emerald-400" x-text="partner.contribution"></li>
+                                        </template>
+                                    </ul>
+                                </div>
                             </div>
 
                             <template x-if="partner.education">
-                                <div class="pt-8 border-t border-white/10">
-                                    <div class="flex items-start gap-4">
-                                        <svg class="w-6 h-6 text-emerald-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                                        <div>
-                                            <p class="text-sm text-slate-300 mb-2" x-text="partner.education"></p>
-                                            <p class="text-sm text-slate-400" x-text="partner.oversight"></p>
+                                <div class="pt-6 sm:pt-8 border-t border-white/10">
+                                    <div class="flex items-start gap-3 sm:gap-4">
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                        <div class="min-w-0">
+                                            <p class="text-[13px] sm:text-sm text-slate-300 mb-1 sm:mb-2" x-text="partner.education"></p>
+                                            <p class="text-[12px] sm:text-sm text-slate-400 italic" x-text="partner.oversight"></p>
                                         </div>
                                     </div>
                                 </div>
                             </template>
 
                             <template x-if="partner.experience">
-                                <div class="pt-8 border-t border-white/10 space-y-4">
-                                    <p class="text-sm text-slate-300" x-text="partner.experience"></p>
+                                <div class="pt-6 sm:pt-8 border-t border-white/10 space-y-3 sm:space-y-4">
+                                    <p class="text-[13px] sm:text-sm text-slate-300" x-text="partner.experience"></p>
                                     <template x-if="partner.travel">
-                                        <p class="text-sm text-slate-400" x-text="partner.travel"></p>
+                                        <p class="text-[12px] sm:text-sm text-slate-400" x-text="partner.travel"></p>
                                     </template>
-                                    <p class="text-sm font-bold text-emerald-400" x-text="partner.contribution"></p>
                                 </div>
                             </template>
                         </div>
@@ -353,57 +362,57 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white">
+    <section id="contact" class="py-16 sm:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-emerald-600 rounded-[3rem] p-8 lg:p-20 text-white overflow-hidden relative">
-                <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+            <div class="bg-emerald-600 rounded-3xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-20 text-white overflow-hidden relative shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none"></div>
                 
-                <div class="grid lg:grid-cols-2 gap-16 relative">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 relative">
                     <div>
-                        <h2 class="text-4xl font-extrabold mb-8" x-text="t().contactTitle"></h2>
-                        <div class="space-y-8">
-                            <div class="flex items-start gap-6">
-                                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold mb-8 sm:mb-10" x-text="t().contactTitle"></h2>
+                        <div class="space-y-6 sm:space-y-8">
+                            <div class="flex items-start gap-4 sm:gap-6">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 </div>
-                                <div>
-                                    <p class="text-emerald-100 text-sm font-bold uppercase tracking-wider mb-1">Tel & WhatsApp</p>
-                                    <a :href="'tel:' + t().contactDetails.tel" class="text-2xl font-bold hover:underline" x-text="t().contactDetails.tel"></a>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-6">
-                                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-emerald-100 text-sm font-bold uppercase tracking-wider mb-1">WeChat</p>
-                                    <p class="text-2xl font-bold" x-text="t().contactDetails.wechat"></p>
+                                <div class="min-w-0">
+                                    <p class="text-emerald-100 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Tel & WhatsApp</p>
+                                    <a :href="'tel:' + t().contactDetails.tel" class="text-lg sm:text-2xl font-bold hover:underline break-words" x-text="t().contactDetails.tel"></a>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-6">
-                                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div class="flex items-start gap-4 sm:gap-6">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                                 </div>
-                                <div>
-                                    <p class="text-emerald-100 text-sm font-bold uppercase tracking-wider mb-1">Email</p>
-                                    <a :href="'mailto:' + t().contactDetails.email" class="text-2xl font-bold hover:underline" x-text="t().contactDetails.email"></a>
+                                <div class="min-w-0">
+                                    <p class="text-emerald-100 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">WeChat</p>
+                                    <p class="text-lg sm:text-2xl font-bold break-words" x-text="t().contactDetails.wechat"></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 sm:gap-6">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-emerald-100 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Email</p>
+                                    <a :href="'mailto:' + t().contactDetails.email" class="text-lg sm:text-2xl font-bold hover:underline break-all" x-text="t().contactDetails.email"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white/10 backdrop-blur-md p-8 lg:p-12 rounded-[2rem] border border-white/20">
-                        <div class="flex items-start gap-6 mb-8">
-                            <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div class="bg-white/10 backdrop-blur-md p-6 sm:p-10 lg:p-12 rounded-2xl sm:rounded-[2rem] border border-white/20 shadow-inner">
+                        <div class="flex items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold mb-4" x-text="lang === 'en' ? 'Corporate Office' : '公司总部地址'"></h3>
-                                <p class="text-emerald-50 leading-relaxed text-lg" x-text="t().contactDetails.address"></p>
+                                <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4" x-text="lang === 'en' ? 'Corporate Office' : '公司总部地址'"></h3>
+                                <p class="text-emerald-50 leading-relaxed text-sm sm:text-lg hyphens-auto" x-text="t().contactDetails.address"></p>
                             </div>
                         </div>
-                        <div class="pt-8 border-t border-white/20">
-                            <p class="text-sm font-medium text-emerald-100 opacity-80" x-text="lang === 'en' ? 'Operating across Malaysia, China, Japan, and ASEAN.' : '业务覆盖马来西亚、中国、日本及东盟地区。'"></p>
+                        <div class="pt-6 sm:pt-8 border-t border-white/20">
+                            <p class="text-xs sm:text-sm font-medium text-emerald-100 opacity-80" x-text="lang === 'en' ? 'Operating across Malaysia, China, Japan, and ASEAN.' : '业务覆盖马来西亚、中国、日本及东盟地区。'"></p>
                         </div>
                     </div>
                 </div>
@@ -419,8 +428,8 @@
                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 2 7a7 7 0 0 1-7 7c-1.07 0-2.09-.25-3-.7L11 20z"/><path d="M11 20c-1.07 0-2.09-.25-3-.7L5 22l1.3-3c-1.21-1.35-1.9-3.1-1.9-5a7.12 7.12 0 0 1 .7-3"/></svg>
                     <span x-text="t().name"></span>
                 </div>
-                <p class="text-slate-500 font-medium" x-text="t().footer"></p>
-                <p class="text-slate-400 text-xs mt-4">
+                <p class="text-slate-500 font-medium text-sm sm:text-base px-4" x-text="t().footer"></p>
+                <p class="text-slate-400 text-[10px] sm:text-xs mt-4">
                     © <span x-text="new Date().getFullYear()"></span> <span x-text="t().name"></span> <span x-text="t().registration"></span>. All rights reserved.
                 </p>
             </div>
